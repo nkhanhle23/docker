@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+<head>
+    <title>Titanic Dataset</title>
+</head>
+<body>
+    <h1>Titanic Dataset</h1>
+    <table>
+        {{ table|safe }}
+    </table>
+    <h2>Survival by Gender</h2>
+    <img src="{{ url_for('static', filename='chart.png') }}" alt="Survival by Gender">
+</body>
+</html>
