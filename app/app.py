@@ -1,12 +1,12 @@
 import time
 import redis
-from flask import Flask, render_template
-#import os
-#from dotenv import load_dotenv
+from flask import Flask, render_template,url_for
 import pandas as pd
 import matplotlib.pyplot as plt
+import os
+from dotenv import load_dotenv
 
-#load_dotenv() 
+load_dotenv() 
 app = Flask(__name__)
 cache = redis.Redis(host='redis', port=6379)
 
