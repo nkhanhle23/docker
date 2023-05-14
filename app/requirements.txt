@@ -1,4 +1,5 @@
 Flask
 Redis
+dotenv
 Pandas
 matplotlib
