@@ -1,5 +1,5 @@
 Flask
 Redis
-dotenv
+python-dotenv
 Pandas
 matplotlib
