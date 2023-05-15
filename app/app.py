@@ -7,8 +7,9 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv() 
+cache = redis.Redis(host=os.getenv('REDIS_HOST'), port=6379,  password=os.getenv('REDIS_PASSWORD'))
 app = Flask(__name__)
-cache = redis.Redis(host='redis', port=6379)
+
 
 
 def get_hit_count():
@@ -21,7 +22,7 @@ def get_hit_count():
                 raise exc
             retries -= 1
             time.sleep(0.5)
-
+            
 @app.route('/')
 def hello():
     count = get_hit_count()
@@ -42,5 +43,8 @@ def titanic():
     chart = plot.get_figure()
     chart.savefig('static/chart.png')
     return render_template('titanic.html', table=table, chart_url = url_for("static",filename="chart.png"))
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=80, debug=True)
+    
